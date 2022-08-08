@@ -24,12 +24,15 @@ public class Listener implements TestWatcher {
     @Override
     public void testAborted(ExtensionContext context, Throwable cause) {
         System.out.println("----------");
-        System.out.println("This test was failed");
-        TestWatcher.super.testAborted(context, cause);
+        System.out.println("This test was aborted" + cause.getMessage());
+        //TestWatcher.super.testAborted(context, cause);
     }
 
     @Override
-    public void testFailed(ExtensionContext context, Throwable cause) {
+    public void testFailed(ExtensionContext context, Throwable cause)
+    {
+        System.out.println("----------");
+        System.out.println("This test failed" + cause.getMessage());
         TestWatcher.super.testFailed(context, cause);
     }
 }
